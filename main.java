@@ -5,7 +5,6 @@ import java.util.Scanner;
 class Calculator {
     static int num1;
     static int dif;
-    static int num;
     static int num2;
     static int result;
     static String operator;
@@ -68,10 +67,8 @@ class Calculator {
     // код ниже проверяет, были ли римские числа или числа больше 10 в задании и передает данные в арабском виде в калькулятор.
     static void calc(int c, int d, String e, String f) {
         if (c == -1 && d == -1) {
-            romToInt(e);
-            c = num;
-            romToInt(f);
-            d = num;
+            c =  romToInt(e);
+            d = romToInt(f);
             dif = 0;
             if (c > 10 || d > 10) {
                 System.out.println("Заданные числа должны лежать в промежутке 1-10");
