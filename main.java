@@ -13,6 +13,7 @@ class Calculator {
     static String part1;
     static String part2;
 
+    //Код ниже преобразует любое рисмское число в арабское число типа int
     static int romToInt(String roman) {
         HashMap<Character, Integer> romAndInt = new HashMap<>();
         romAndInt.put('I', 1);
@@ -32,7 +33,8 @@ class Calculator {
         num = a;
         return num;
     }
-    //Код выше преобразует любое рисмское число в арабское число типа int
+    //Код ниже разбивает заданную пользователем строчку на 3 строчки, где 1 строчка все что до первого пробела, вторая строчка - это сам знак и третья - это остаток после знака.
+    //Так же проверяет, точно ли введено все верно.
     static void splitPrimer(String example) {
         String[] tokens = example.split(" ");
         if (tokens.length != 3) {
@@ -43,14 +45,13 @@ class Calculator {
         operator = tokens[1];
         part2 = tokens[2];
     }
-    //Код выше разбивает заданную пользователем строчку на 3 строчки, где 1 строчка все что до первого пробела, вторая строчка - это сам знак и третья - это остаток после знака.
-    //Так же проверяет, точно ли введено все верно.
+//Код ниже переводит строчки в числовое значение, если это возможно. Если невозможно выдает -1.
     static int convertToInt(String number) {
         if (number.matches("-?\\d+")) {
             return Integer.parseInt(number);
         } else return -1;
     }
-    //Код выше переводит строчки в числовое значение, если это возможно. Если невозможно выдает -1.
+    // Код ниже переводит обратно из арабского типа int в римское типа String
     static String intToRom(int a){
         int[] number = {100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] romNum = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
@@ -64,7 +65,7 @@ class Calculator {
         resultStr = b.toString();
         return resultStr;
     }
-    // Код выше переводит обратно из арабского типа int в римское типа String
+    // код ниже проверяет, были ли римские числа или числа больше 10 в задании и передает данные в арабском виде в калькулятор.
     static void calc(int c, int d, String e, String f) {
         if (c == -1 && d == -1) {
             romToInt(e);
@@ -86,7 +87,7 @@ class Calculator {
             resInt(c, d, operator);
         }
     }
-    // код выше проверяет, были ли римские числа или числа больше 10 в задании и передает данные в арабском виде в калькулятор.
+    //Код ниже проверяет знак и занимается арифметикой.
     static void resInt(int a, int b, String operator)
     {
         switch (operator) {
@@ -143,8 +144,7 @@ class Calculator {
 
         }
     }
-    //Код выше проверяет знак и занимается арифметикой.
-
+    
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
