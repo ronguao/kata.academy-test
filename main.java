@@ -50,7 +50,7 @@ class Calculator {
         } else return -1;
     }
     // Код ниже переводит обратно из арабского типа int в римское типа String
-    static String intToRom(int a){
+    static void intToRom(int a){
         int[] number = {100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] romNum = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder b = new StringBuilder();
@@ -125,7 +125,7 @@ class Calculator {
                     break;
                 } else if (dif == 0) {
                     result = a / b;
-                    if ( a<=b & dif == 0) {
+                    if ( a<=b ) {
                         System.out.println("в римской системе нет отрицательных чисел и 0");
                     } else {
                         intToRom(result);
