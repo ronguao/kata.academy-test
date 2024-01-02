@@ -92,37 +92,33 @@ class Calculator {
                 if (dif == 0){
                     intToRom(result);
                     System.out.println("Результат: " + resultStr);
-                    break;
                 } else {
-                System.out.println("Результат: " + result);
-                break;}
+                    System.out.println("Результат: " + result);
+                }
+                break;
             case "-":
                 result = a - b;
                 if ( a<=b & dif == 0){
                     System.out.println("в римской системе нет отрицательных чисел и 0");
-                    break;
                 } else if (dif == 0) {
                     intToRom(result);
                     System.out.println("Результат: " + resultStr);
-                    break;
                 } else {
                     System.out.println("Результат: " + result);
-                    break;
                 }
+                break;
             case "*":
                 result = a * b;
                 if (dif == 0){
                     intToRom(result);
                     System.out.println("Результат: " + resultStr);
-                    break;
                 } else {
                     System.out.println("Результат: " + result);
-                    break;
                 }
+                break;
             case "/":
                 if (b == 0) {
                     System.out.println("Деление на 0 невозможно");
-                    break;
                 } else if (dif == 0) {
                     result = a / b;
                     if ( a<=b ) {
@@ -130,13 +126,12 @@ class Calculator {
                     } else {
                         intToRom(result);
                         System.out.println("Результат: " + resultStr);
-                        break;
                     }
                 } else {
                     result = a / b;
                     System.out.println("Результат: " + result);
-                    break;
                 }
+                break;
 
         }
     }
