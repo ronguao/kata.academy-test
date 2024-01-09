@@ -50,7 +50,7 @@ class Calculator {
         } else return -1;
     }
     // Код ниже переводит обратно из арабского типа int в римское типа String
-    static void intToRom(int a){
+     static void intToRom(int a){
         int[] number = {100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] romNum = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder b = new StringBuilder();
@@ -61,7 +61,6 @@ class Calculator {
             }
         }
         resultStr = b.toString();
-        return resultStr;
     }
     // код ниже проверяет, были ли римские числа или числа больше 10 в задании и передает данные в арабском виде в калькулятор.
     static void calc(int c, int d, String e, String f) {
