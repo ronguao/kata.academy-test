@@ -36,21 +36,20 @@ class Calculator {
     static void splitPrimer(String example) {
         String[] tokens = example.split(" ");
         if (tokens.length != 3) {
-            System.out.println("Cтрока не является математической операцией");
-            return;
+            throw new IllegalArgumentException("Строка не является математической операцией");
         }
         part1 = tokens[0];
         operator = tokens[1];
         part2 = tokens[2];
     }
-//Код ниже переводит строчки в числовое значение, если это возможно. Если невозможно выдает -1.
+    //Код ниже переводит строчки в числовое значение, если это возможно. Если невозможно выдает -1.
     static int convertToInt(String number) {
         if (number.matches("-?\\d+")) {
             return Integer.parseInt(number);
         } else return -1;
     }
     // Код ниже переводит обратно из арабского типа int в римское типа String
-     static void intToRom(int a){
+    static void intToRom(int a){
         int[] number = {100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] romNum = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder b = new StringBuilder();
@@ -69,14 +68,14 @@ class Calculator {
             d = romToInt(f);
             dif = 0;
             if (c > 10 || d > 10) {
-                System.out.println("Заданные числа должны лежать в промежутке 1-10");
+                throw new IllegalArgumentException("Заданные числа должны лежать в промежутке 1-10");
             } else {
                 resInt(c, d, operator);
             }
         } else if  (c == -1 ^ d == -1) {
-            System.out.println("используются одновременно разные системы счисления или присутствуют отрицательные/нецелые числа");
+            throw new IllegalArgumentException("используются одновременно разные системы счисления или присутствуют отрицательные/нецелые числа");
         }else if (c > 10 || d > 10) {
-            System.out.println("Заданные числа должны лежать в промежутке 1-10");
+            throw new IllegalArgumentException("Заданные числа должны лежать в промежутке 1-10");
         } else{
             dif = 1;
             resInt(c, d, operator);
@@ -98,7 +97,7 @@ class Calculator {
             case "-":
                 result = a - b;
                 if ( a<=b & dif == 0){
-                    System.out.println("в римской системе нет отрицательных чисел и 0");
+                    throw new IllegalArgumentException("в римской системе нет отрицательных чисел и 0");
                 } else if (dif == 0) {
                     intToRom(result);
                     System.out.println("Результат: " + resultStr);
@@ -117,11 +116,11 @@ class Calculator {
                 break;
             case "/":
                 if (b == 0) {
-                    System.out.println("Деление на 0 невозможно");
+                    throw new IllegalArgumentException("Деление на 0 невозможно");
                 } else if (dif == 0) {
                     result = a / b;
                     if ( a<=b ) {
-                        System.out.println("в римской системе нет отрицательных чисел и 0");
+                        throw new IllegalArgumentException("в римской системе нет отрицательных чисел и 0");
                     } else {
                         intToRom(result);
                         System.out.println("Результат: " + resultStr);
@@ -134,7 +133,7 @@ class Calculator {
 
         }
     }
-    
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -146,3 +145,4 @@ class Calculator {
         calc(num1, num2, part1, part2);
     }
 }
+
